@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>update</title>
+    <style>
+        /*body {*/
+        /*    background-color: black;*/
+        /*}*/
+        .forms_area {
+            color: aqua;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <form class='forms_area' action="" method="post">
+
+        {% csrf_token %}
+        {{men.name}}
+
+        <input name="post_name" value="{{ men.post_name }}">
+        <input name="post_description" value="{{ men.post_description }}">
+        <input name="post_img" value="{{ men.post_img }}">
+        <input name="popular" value="{{ men.popular }}">
+
+
+
+        <button>Отправить</button>
+    </form>
+</body>
+</html>

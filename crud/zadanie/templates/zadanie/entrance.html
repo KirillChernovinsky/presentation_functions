@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <style>
+
+        body{
+            color: white;
+            background-color: grey;
+        }
+
+        .container {
+            width: 500px;
+            padding: 10px;
+            background-color: blue;
+            margin: 0 auto}
+
+        .conteiner_head {
+            padding-left: 150px;
+            align-items: center;
+            justify-content: center
+        }
+        .conteiner_head_registr{
+            padding-left: 30px;
+        }
+        .link_to_the_page {
+            padding-left: 150px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .button_of_registr {
+            display: flex;
+            box-sizing: border-box;
+            justify-content: center;
+
+            align-items: center;
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'ZADANIE/css/styles.css' %}">
+    <title>Hello</title>
+</head>
+<body>
+    <div class="container">
+        <div class="conteiner_head">
+            <h4 class="conteiner_head_registr">Вход</h4>
+            <p>Войдите в учётную запись</p>
+        </div>
+        <form action="" method="post">
+        {% csrf_token %}
+        <div class="">
+            <p>{{ form.email.label }}}</p>
+            <div>{{ form.email }}</div>
+            <p>{{ form.password.label}}</p>
+            <div>{{ form.password }}</div>
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <p class="">{{error}}</p>
+                    {% endfor %}
+                {% endif %}
+
+        </div>
+
+            <p> </p>
+
+            <button class="button_of_registr">Вход</button>
+
+
+            <p></p>
+        </form>
+            <a class="link_to_the_page" href="myregistr">Вернуться к странице регистрации</a>
+
+    </div>
+
+<!--        <hr>-->
+<!--    <form action="" method="post">-->
+<!--        {% csrf_token %}-->
+<!--        {{ form2 }}-->
+<!--        <button>Send</button>-->
+<!--    </form>-->
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>update</title>
+    <style>
+        /*body {*/
+        /*    background-color: black;*/
+        /*}*/
+        .forms_area {
+            color: aqua;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <form class='forms_area' action="" method="post">
+
+        {% csrf_token %}
+        {{men.name}}
+
+        <input name="name" value="{{ men.name }}">
+        <input name="surname" value="{{ men.surname }}">
+        <input name="age" value="{{ men.age }}" type="number">
+        <input name="gender" value="{{ men.gender }}" type="checkbox">
+        <input name="birthDay" value="{{ men.birthDay }}">
+
+
+        <button>Отправить</button>
+    </form>
+</body>
+</html>

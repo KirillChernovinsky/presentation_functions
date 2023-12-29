@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <style>
+
+        body{
+            color: white;
+            background-color: grey;
+        }
+
+        .container {
+            width: 500px;
+            padding: 10px;
+            background-color: blue;
+            margin: 0 auto}
+
+        .conteiner_head {
+            padding-left: 150px;
+            align-items: center;
+            justify-content: center
+        }
+        .conteiner_head_registr{
+            padding-left: 30px;
+        }
+        .link_to_the_page {
+            padding-left: 150px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .button_of_registr {
+            display: flex;
+            box-sizing: border-box;
+            justify-content: center;
+
+            align-items: center;
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'ZADANIE/css/styles.css' %}">
+    <title>pppp</title>
+</head>
+<body>
+    <div class="container">
+        <div class="conteiner_head">
+            <h4 class="conteiner_head_registr">Регистрация</h4>
+            <p>Создайте учётную запись</p>
+        </div>
+        <form action="" method="post">
+        {% csrf_token %}
+        <div class="">
+
+
+
+            {% for field in form %}
+                <p>{{ field.label }}</p>
+                <div>{{ field }}</div>
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <p class="">{{error}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </div>
+
+            <p> </p>
+
+            <button class="button_of_registr">Регистрация</button>
+
+
+        </form>
+            <p></p>
+            <a href="{% url 'vhod' %}">Вернуться к странице входа</a>
+
+
+    </div>
+
+<!--        <hr>-->
+<!--    <form action="" method="post">-->
+<!--        {% csrf_token %}-->
+<!--        {{ form2 }}-->
+<!--        <button>Send</button>-->
+<!--    </form>-->
+
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <style>
+        .conteiner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        .image_ {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h4>
+        <a href="{% url 'create' %}">Создать пост)</a>
+        <p></p>
+        {% comment %}
+<!--        <a href="{% url 'popular_posts' %}">Популярные посты</a>-->
+<!--        <p></p>-->
+<!--        <a href="{% url 'popular_posts' %}">Последний пост</a>-->
+<!--        <p></p>-->
+        <!--        <a href="{% url 'vhod' %}">Вход</a>-->
+        {% endcomment %}
+        <a href="{% url 'registr' %}">Регистрация</a>
+        <p></p>
+
+    </h4>
+    <div class="conteiner">
+
+
+            {% for i in posts %}
+
+                <p>{{ i.post_name }} </p>
+                <p>{{ i.post_description }}</p>
+                <img class="image_" src="{{ i.post_img }}">
+                <p>
+                <a href="{% url 'update' i.pk %}">Редактировать</a>
+                </p>
+
+                <a href="{% url 'delete' i.pk %}">Удалить</a>
+                <a href="{% url 'update' i.pk %}">Сделать популярным</a>
+
+
+            <form>
+                {{ men }}
+                <button>Отправить</button>
+            </form>
+
+            <a href="{% url 'update' i.id %}">Добавить лайк</a>
+
+                <hr>
+            {% endfor %}
+    </div>
+</body>
+</html>
